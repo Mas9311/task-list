@@ -20,11 +20,22 @@ I called mine <code>ptasks</code>, short for *print tasks*.
 
 #### Linux users ####
 
- 1. <code>mv</code> the <code>task-list</code> folder to it's final destination
+ 1. <code>mv</code> the <code>task-list-1.0</code> folder to it's final destination
  1. <code>cd /usr/local/bin/</code>
  1. <code>sudo touch ptasks</code> and enter the password when prompted
  1. <code>sudo chmod +x ptasks</code>
  1. <code>sudo gedit ptasks</code> or whatever text editor you're comfortable with, such as {vim/vi, nano, gedit} and type:
-     - <code>cd ~/path/to/task-list/;</code>
+     - <code>cd ~/path/to/task-list1.0/;</code>
      - <code>python3 run.py print</code>
      - save the changes (in gedit, \[ctrl + s\])
+
+ - To remove the executable, type <code>sudo rm /usr/local/bin/ptasks</code>
+
+###### Create a Desktop Launcher #####
+
+ 1. right click the Desktop
+ 1. click the Create Launcher... option
+ 1. Name: enter any name, or *ptasks*
+ 1. Command: <code>gnome-terminal -- /bin/bash -c 'ptasks; read'</code>
+ 1. click Create button (no need to click the run in Terminal option)
+ 1. open the new launcher and click Mark Executable when prompted
