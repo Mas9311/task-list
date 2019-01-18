@@ -6,7 +6,7 @@ class Feedback:
         self.information = information
         self.indent = '  ' if self.is_invalid else ''
         self.width = 2 + 14 + 2
-        self.vert_border_char = '*' if self.is_invalid else '║'
+        self.vertical_border_char = '*' if self.is_invalid else '║'
 
     def create_border_line(self, is_top):
         first_char = '*'
@@ -30,7 +30,7 @@ class Feedback:
         num_spaces = self.width - 4 - len(information_line)
         for _ in range(num_spaces):
             ending_spaces += ' '
-        return f'{self.vert_border_char} {information_line}{ending_spaces} {self.vert_border_char}'
+        return f'{self.vertical_border_char} {information_line}{ending_spaces} {self.vertical_border_char}'
 
     def __str__(self):
         information_str = f''

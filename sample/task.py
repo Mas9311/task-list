@@ -1,33 +1,58 @@
 from . import file_helper, format
 
 
+def create_lists():
+    my_lists = {}
+    files = file_helper.get_all_files()
+    for filename in files:
+        my_lists[filename] = Task(filename)
+    return my_lists
+
+
+def print_lists(my_lists):
+    for key in my_lists:
+        if my_lists[key].tasks:
+            print(my_lists[key])
+        else:
+            print(format.Feedback(False, f'You have completed all your {key}!'))
+
+
 class Task:
     def __init__(self, filename):
         self.filename = filename
-        self.file = file_helper.get_file(filename)
-        self.type_of = 'task' if filename == 'todo' else 'chore'
-        self.tasks = file_helper.read(self.file)
+        self.file_path = file_helper.get_file(filename)
+        self.type_of = filename
+        if len(filename) > 1 and filename[-1] == 's':
+            self.type_of = filename[:-1]
+        self.tasks = file_helper.read(self.file_path)
 
     def get_description(self, index):
         description = self.tasks[index][1]
-        return f'{description[0].upper()}{description[1:].lower()}'
+        if len(description) is 1:
+            return description[0].upper()
+        return description[0].upper() + description[1:].lower()
 
-    def add_task(self, description, real_index):
-        self.tasks.insert(real_index, (real_index, description))
+    def get_type(self):
+        if len(self.type_of) is 1:
+            return self.type_of[0].upper()
+        return '' + self.type_of[0].upper() + self.type_of[1:].lower()
+
+    def get_file(self):
+        if len(self.filename) is 1:
+            return self.filename[0].upper()
+        return '' + self.filename[0].upper() + self.filename[1:].lower()
+
+    def add_task(self, description, index):
+        self.tasks.insert(index, (index, description))
         self.reorder_numbering()
 
     def remove_task(self, real_index):
         self.tasks.pop(real_index)
         self.reorder_numbering()
 
-    def is_valid_index(self, real_index):
-        if real_index >= len(self.tasks) or real_index < 0:
-            print(format.Feedback(True, f'\'{real_index + 1}\' is out of range.'))
-            return False
-        return True
-
     def rename_task(self, index, description):
         self.tasks[index] = (index + 1, description)
+        self.reorder_numbering()
 
     def rearrange_a_task(self, first, second):
         real_first = first
@@ -42,9 +67,10 @@ class Task:
         for new_index in range(len(self.tasks)):
             description = self.tasks[new_index][1]
             self.tasks[new_index] = (new_index + 1, description)
+        file_helper.write(self)
 
     def __str__(self):
-        title = f'  {self.type_of[0].upper()}{self.type_of[1:]}s To Complete:  '
+        title = f'  ' + str(self.get_file()) + ' To Complete:  '
         left_spaces = 5
         if len(self.tasks) >= 10:
             left_spaces += 1
@@ -61,11 +87,11 @@ class Task:
         mid_line += '━' * (line_len - 2)
         mid_line += '┪'
         tasks_output = ''
-        for task in self.tasks:
-            task_output = f'┃  {task[0]}. {task[1][0].upper()}{task[1][1:]}'
+        for index in range(len(self.tasks)):
+            task_output = f'┃  {self.tasks[index][0]}. {self.get_description(index)}'
             right_spaces = ' ' * (line_len - len(task_output) - 1)
             tasks_output += f'{task_output}{right_spaces}┃'
-            if task is not self.tasks[-1]:
+            if index is not len(self.tasks) - 1:
                 tasks_output += '\n'
         bot_line = '┗'
         bot_line += '━' * (line_len - 2)

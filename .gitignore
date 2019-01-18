@@ -106,3 +106,4 @@ venv.bak/
 # Directories I don't want to add to the Repo
 .idea
 /my_lists
+/my_lists/*
