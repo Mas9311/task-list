@@ -31,8 +31,21 @@ def create_default():
             new_file.close()
         output.append('  * chores file to save all of your chores')
     if output:
-        output.insert(0, 'Created the following:')
+        output.insert(0, 'Created the:')
         print(format.Feedback(False, output))
+
+
+def create_new_file(filename):
+    new_file_path = get_file(filename)
+    if not os.path.exists(new_file_path):
+        with open(new_file_path, 'w') as new_file:
+            new_file.close()
+        return True
+    return False
+
+
+def delete_file(filename):
+    os.remove(get_file(filename))
 
 
 def read(file_path):

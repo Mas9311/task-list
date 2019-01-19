@@ -20,21 +20,70 @@ def file_menu(my_lists):
     while True:
         menu_output = (f'Enter the desired [option] from the list below:\n'
                        f'\t[1] to Print all lists\n')
+        curr_option = 2
+        options = {}
+        for key in my_lists:
+            options[curr_option] = key
+            menu_output += f'\t[{curr_option}] to Modify the {my_lists[key].get_file()} list\n'
+            curr_option += 1
+        menu_output += (f'\t[{curr_option}] to Create a new list\n'
+                        f'\t[{curr_option + 1}] to Delete a list\n')
+
+        selection = retrieve_index(len(my_lists) + 3, menu_output)
+        if selection is 'return':
+            return ''
+        selection += 1
+        if selection is 1:
+            task.print_lists(my_lists)
+            print()
+        elif selection < curr_option:
+            return options[selection]
+        elif selection is curr_option:
+            create_file(my_lists)
+        elif selection is curr_option + 1:
+            delete_file(my_lists)
+
+
+def create_file(my_lists):
+    while True:
+        new_file = input(f'What do you want to name the file?\n'
+                         f'Make it end in a plural \'s\' if possible\n'
+                         f'For example: homework, assignments, to_buy_items, call_back\n'
+                         f'  or press [Enter] to return\n').strip().lower()
+        if not new_file:
+            return
+        elif file_helper.create_new_file(new_file):
+            print()
+            my_lists[new_file] = task.Task(new_file)
+            return
+        else:
+            print(format.Feedback(True, f'{new_file} has already been created.'))
+
+
+def delete_file(my_lists):
+    while True:
+        menu_output = 'What is the file [number] to delete?\n'
         curr_option = 1
         options = {}
         for key in my_lists:
             options[curr_option] = key
-            menu_output += f'\t[{curr_option + 1}] to modify the {my_lists[key].get_file()} list\n'
+            menu_output += f'\t[{curr_option}] to delete {my_lists[key].get_file()}\n'
             curr_option += 1
 
-        selection = retrieve_index(len(my_lists) + 1, menu_output)
+        selection = retrieve_index(len(my_lists), menu_output)
         if selection is 'return':
-            return ''
-        elif selection is 0:
-            task.print_lists(my_lists)
-            print()
+            return
         else:
-            return options[selection]
+            del_file = options[selection + 1]
+            confirm = input(f'Are you sure you want to delete {del_file}?\n'
+                            f'  Press any key to confirm the deletion\n'
+                            f'  or press [Enter] to return\n').strip()
+            if not confirm:
+                return
+            print()
+            my_lists.pop(del_file, None)
+            file_helper.delete_file(del_file)
+            return
 
 
 def edit_menu(curr_list):
@@ -43,7 +92,7 @@ def edit_menu(curr_list):
         additional_menu = ''
         max_range = 1
         if not curr_list.tasks:
-            print(format.Feedback(False, f'You do not have any {curr_list.type_of}s to print.'))
+            print(format.Feedback(False, f'You do not have any {curr_list.type_of} to print.'))
         else:
             menu_output = f'{curr_list}\n'
 
@@ -82,7 +131,7 @@ def add_task(curr_list):
     index = 0
     len_list = len(curr_list.tasks)
     description = input(f'Enter the name of the {curr_list.type_of}\n'
-                        f'  or press [Enter] to return.\n').strip().lower()
+                        f'  or press [Enter] to return\n').strip().lower()
     if not description:
         return
     elif len_list:
@@ -96,6 +145,8 @@ def add_task(curr_list):
         index = retrieve_index(len_list + 1, menu_output)
         if index is 'return':
             return
+    else:
+        print()
     curr_list.add_task(description, index)
 
 
@@ -107,13 +158,12 @@ def rename_task(curr_list):
         return
     elif len_list > 1:
         menu_output = (f'{curr_list}\n'
-                       f'\nWhat is the {curr_list.type_of} [number] to rename?\n'
-                       f'  or press [Enter] to quit renaming.')
+                       f'\nWhat is the {curr_list.type_of} [number] to rename?\n')
         index = retrieve_index(len_list, menu_output)
         if index is 'return':
             return
     description = input(f'What do you want to rename \'{curr_list.get_description(index)}\' to?\n'
-                        f'  or press [Enter] to return').strip().lower()
+                        f'  or press [Enter] to return\n').strip().lower()
     if not description:
         return
     print()
@@ -161,7 +211,7 @@ def retrieve_index(max_range, output=''):
     user_input = ''
     while True:
         try:
-            user_input = input(f'{output + f"  or press [Enter] to quit"}\n').strip().lower()
+            user_input = input(f'{output + f"  or press [Enter] to return"}\n').strip().lower()
             if not user_input:
                 return 'return'
             index = int(user_input)
