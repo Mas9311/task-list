@@ -9,38 +9,27 @@ def create_lists():
     return my_lists
 
 
-def print_lists(my_lists):
-    for key in my_lists:
-        if my_lists[key].tasks:
-            print(my_lists[key])
-        else:
-            print(format.Feedback(False, f'You have completed all your {key}!'))
+def return_all(my_lists):
+    output = ''
+    for curr_list in my_lists.values():
+        output += f'{curr_list}\n'
+    return output
 
 
 class Task:
     def __init__(self, filename):
         self.filename = filename
         self.file_path = file_helper.get_file(filename)
-        self.type_of = filename
+        self.singular = filename
         if len(filename) > 1 and filename[-1] == 's':
-            self.type_of = filename[:-1]
+            self.singular = filename[:-1].replace('_', ' ')
         self.tasks = file_helper.read(self.file_path)
 
-    def get_description(self, index):
-        description = self.tasks[index][1]
-        if len(description) is 1:
-            return description[0].upper()
-        return description[0].upper() + description[1:].lower()
-
-    def get_type(self):
-        if len(self.type_of) is 1:
-            return self.type_of[0].upper()
-        return '' + self.type_of[0].upper() + self.type_of[1:].lower()
+    def cap_singular(self):
+        return format.capitalize_first(self.singular)
 
     def get_file(self):
-        if len(self.filename) is 1:
-            return self.filename[0].upper()
-        return '' + self.filename[0].upper() + self.filename[1:].lower()
+        return format.normalize_file(self.filename)
 
     def add_task(self, description, index):
         self.tasks.insert(index, (index, description))
@@ -70,6 +59,12 @@ class Task:
         file_helper.write(self)
 
     def __str__(self):
+        if not self.tasks:
+            message = f'│ You have completed all of your {self.get_file()}! │'
+            top_line = '┌' + ('─' * (len(message) - 2)) + '┐'
+            bot_line = '└' + ('─' * (len(message) - 2)) + '┘'
+            return f'{top_line}\n{message}\n{bot_line}'
+
         title = f'  ' + str(self.get_file()) + ' To Complete:  '
         left_spaces = 5
         if len(self.tasks) >= 10:
@@ -88,7 +83,7 @@ class Task:
         mid_line += '┪'
         tasks_output = ''
         for index in range(len(self.tasks)):
-            task_output = f'┃  {self.tasks[index][0]}. {self.get_description(index)}'
+            task_output = f'┃  {self.tasks[index][0]}. {self.tasks[index][1]}'
             right_spaces = ' ' * (line_len - len(task_output) - 1)
             tasks_output += f'{task_output}{right_spaces}┃'
             if index is not len(self.tasks) - 1:

@@ -53,3 +53,18 @@ class Feedback:
         return (f'\n{top_border_line}\n'
                 f'{output}\n'
                 f'{bot_border_line}\n')
+
+
+def normalize_file(filename):
+    filename = filename.replace('_', ' ')
+    for index in range(len(filename)):
+        if filename[index] is ' ':
+            filename = filename[0:index+1] + filename[index+1:index+2].upper() + filename[index + 2:]
+    return capitalize_first(filename)
+
+
+def capitalize_first(my_string):
+    if len(my_string) is 1:
+        return my_string.upper()
+    else:
+        return my_string[0].upper() + my_string[1:]

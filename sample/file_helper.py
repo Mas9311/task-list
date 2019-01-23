@@ -15,7 +15,7 @@ def get_all_files():
 
 
 def create_default():
-    """Creates the folder and both default files if they do not exist."""
+    """Creates the default my_lists folder and tasks file if they do not exist."""
     output = []
     if not os.path.exists(get_folder()):
         os.mkdir(get_folder())
@@ -24,15 +24,12 @@ def create_default():
     if not os.path.exists(todo_file):
         with open(todo_file, 'w') as new_file:
             new_file.close()
-        output.append('  * tasks file to save all of your todo list items')
-    chores_file = get_file('chores')
-    if not os.path.exists(chores_file):
-        with open(chores_file, 'w') as new_file:
-            new_file.close()
-        output.append('  * chores file to save all of your chores')
+        output.append('  * tasks file to save all of your general to-do list items')
     if output:
         output.insert(0, 'Created the:')
         print(format.Feedback(False, output))
+        return True
+    return False
 
 
 def create_new_file(filename):
