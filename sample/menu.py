@@ -186,8 +186,11 @@ def reorder_tasks(curr_list):
     elif len(curr_list.tasks) is 1:
         print(format.Feedback(False, f'You cannot reorder with one {curr_list.singular}.'))
         return
+    elif len(curr_list.tasks) is 2:
+        curr_list.rearrange_a_task(0, 1)
+        return
     print(f'{curr_list}\n'
-          f'\nThe {curr_list.type_of} will be moved FROM the first [number] TO the second [number].\n')
+          f'\nThe {curr_list.singular} will be moved FROM the first [number] TO the second [number].\n')
     from_i = retrieve_index(len(curr_list.tasks), 'What is the first [number]?\n')
     if from_i is 'return':
         return
