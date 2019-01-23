@@ -175,6 +175,7 @@ def rename_task(curr_list):
     if not description:
         return
     print()
+    description = format.capitalize_first(description)
     curr_list.rename_task(index, description)
 
 

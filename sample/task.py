@@ -20,9 +20,9 @@ class Task:
     def __init__(self, filename):
         self.filename = filename
         self.file_path = file_helper.get_file(filename)
-        self.singular = filename
+        self.singular = filename.replace('_', ' ')
         if len(filename) > 1 and filename[-1] == 's':
-            self.singular = filename[:-1].replace('_', ' ')
+            self.singular = filename[:-1]
         self.tasks = file_helper.read(self.file_path)
 
     def cap_singular(self):
