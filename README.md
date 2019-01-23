@@ -8,8 +8,8 @@ Consolidate your todo lists.<br>
 
  1. [Download this repo](https://github.com/Mas9311/task-list/archive/v1.0.1.zip), and open a Terminal window.
  1. <code>unzip</code> the new <code>task-list-1.0.1.zip</code> file, then delete the zip.
-  - \[*Optional*] I recommend creating a <code>~/Software</code> folder so your applications don't accumulate in <code>~/Downloads</code> or <code>~/Desktop</code>.
-  - \[*Optional*] Move the <code>task-list-1.0.1</code> folder to <code>~/Software/</code>.
+    - I recommend creating a <code>~/Software/</code> folder so your applications don't accumulate in <code>~/Downloads</code> or <code>~/Desktop</code>.
+    - Move the <code>task-list-1.0.1</code> folder to <code>~/Software/</code>.
  3. <code>cd</code> into the <code>task-list-1.0.1</code> folder.
  1. To run the menu-driven program, type <code>python3 run.py</code>
  1. Or to *just* print all of your lists, type <code>python3 run.py print</code>
