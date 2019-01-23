@@ -20,12 +20,12 @@ Consolidate your todo lists.<br>
 Personally, I don't want to <code>cd</code> into the <code>~/Software/task-list-1.0.1</code> folder and type <code>python3 run.py</code> every time to run the menu program, so follow these steps to create both aliases.<br>
 I named mine <code>tasks</code> and <code>ptasks</code>, short for *print tasks*.<br>
 
-*Note: only one version of this program can be in <code>~/Software/</code> at a time.*<br>
-*If you've downloaded two versions of this program, move the preexisting <code>my_lists/</code> folder to the newer version, then delete the older version entirely.*
+*Note: only one version of this program can be in* <code>~/Software/</code> *at a time.*<br>
+*If you've downloaded two versions of this program, move the preexisting* <code>my_lists/</code> *folder to the newer version, then delete the older version entirely.*
 
 #### Linux users ####
 
-If you did not move the <code>task-list-1.0.1</code> folder into <code>~/Software/</code>, then don't forget to replace the path in the block of text found below.
+If you did not move the <code>task-list-1.0.1/</code> folder into <code>~/Software/</code>, then replace the <code>~/Software/</code> path with the actual path in the block of text found below.
 
  1. <code>nano ~/.profile</code> to see and edit your current aliases.
  1. Copy the following block:
