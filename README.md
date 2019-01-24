@@ -39,13 +39,12 @@ Both will allow you type the given name into Terminal to run the commands we're 
 This guide you in making an executable then a desktop launcher for <code>tasks</code>.<br>
  1. <code>sudo -s</code> and type your password to elevate privileges to root until you type<code>exit</code> or close the Terminal window.
  1. Copy and paste the following into Terminal:
-    - Create <code>tasks</code>
 <pre>echo $"\n# tasks can be executed from anywhere, including a desktop launcher!\n" >> /usr/bin/tasks
 echo "cd ~/Software/task-list*/;" >> /usr/bin/tasks
 echo "python3 run.py" >> /usr/bin/tasks
 chmod +x tasks
 </pre>
-    - Create <code>ptasks</code>
+
 <pre>echo $"\n# ptasks can be executed from anywhere, including a desktop launcher!\n" >> /usr/bin/ptasks
 echo "cd ~/Software/task-list*/;" >> /usr/bin/ptasks
 echo "python3 run.py print" >> /usr/bin/ptasks
