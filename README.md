@@ -51,10 +51,10 @@ python3 run.py </pre>
 Voilà, your <code>tasks</code> executable is complete, now let's make that desktop launcher.
 
  7. Right click any spot on the Desktop.
- 1. Select \[Create Launcher...].
-<pre>Name: Task-List
-Command: tasks
-[✓] Run in Terminal</pre>
+ 1. Select \[Create Launcher...] and do the following:
+   - Name: Task-List
+   - Command: tasks
+   - \[✓] Run in Terminal
  9. Click \[Create].
  1. Open the new launcher and click \[Mark Executable] when prompted.
 
