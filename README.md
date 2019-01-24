@@ -26,9 +26,9 @@ I know it looks like a lot to read, but it's a step-by-step walkthrough.
 
 #### Linux users ####
 
-First, you have to decide if you want to<br>
+First, you have to decide if you want to
 [create a desktop launcher](https://github.com/Mas9311/task-list#create-a-desktop-launcher) 
-or 
+or you can choose to 
 [just create an alias](https://github.com/Mas9311/task-list/blob/master/README.md#create-an-alias).<br>
 Both tutorials will allow you type the given name into Terminal to run the program.
 
