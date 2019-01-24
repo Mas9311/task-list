@@ -67,11 +67,11 @@ You do not need to continue to the next section, as the executables in **/usr/lo
 
 Instead of doing the 10 steps listed above, these will achieve the same goal, but be advised that you cannot properly run a desktop launcher from an alias.
 
-1. Copy and paste the following block into a Terminal shell
+1. Copy and paste the following block into a Terminal shell:
 <pre>echo $'\n# task-list program aliases' >> ~/.bash_aliases
 echo 'alias tasks="cd ~/Software/task-list*/; python3 run.py"' >> ~/.bash_aliases
 echo 'alias ptasks="cd ~/Software/task-list*/; python3 run.py print"'  >> ~/.bash_aliases
 source ~/.bash_aliases
 </pre>
  
- Now your aliases are able to be called, in Terminal, from any folder.
+ Your aliases, <code>tasks</code> and <code>ptasks</code>, are now able to be called, in Terminal, from any folder!
