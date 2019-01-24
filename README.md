@@ -36,7 +36,8 @@ Both will allow you type the given name into Terminal to run the commands we're 
 
 ##### Create a Desktop Launcher #####
 
-This guide you in making an executable then a desktop launcher for <code>tasks</code>.<br>
+These steps will assist you in creating the executables and desktop launchers for <code>tasks</code> and <code>ptasks</code>.<br>
+
  1. <code>sudo -s</code> and type your password to elevate privileges to root until you type <code>exit</code> or close the Terminal window.
  1. Now that you are root, copy and paste the following blocks into Terminal:
 <pre>echo $"\n# tasks can be executed from anywhere, including a desktop launcher!\n" >> /usr/bin/tasks
@@ -44,14 +45,14 @@ echo "cd ~/Software/task-list*/;" >> /usr/bin/tasks
 echo "python3 run.py" >> /usr/bin/tasks
 chmod +x tasks
 </pre>
-
 <pre>echo $"\n# ptasks can be executed from anywhere, including a desktop launcher!\n" >> /usr/bin/ptasks
 echo "cd ~/Software/task-list*/;" >> /usr/bin/ptasks
 echo "python3 run.py print" >> /usr/bin/ptasks
 chmod +x ptasks
 </pre>
 
-Voilà, your <code>tasks</code> and <code>ptasks</code> executables are now complete, so let's go make that desktop launcher.
+Your executables, <code>tasks</code> and <code>ptasks</code>, are now able to be called, in Terminal, from any folder!<br>
+Let's go make that desktop launcher.
 
  3. Right click any spot on the Desktop.
  1. Select \[Create Launcher...] and do the following:
@@ -61,9 +62,10 @@ Voilà, your <code>tasks</code> and <code>ptasks</code> executables are now comp
  5. Click \[Create].
  1. Open the new launcher and click \[Mark Executable] when prompted.
  1. Repeat step 3-6 for <code>ptasks</code>, but change the Name: Print Tasks and Command: ptasks
- 
-You do not need to continue to the next section, as the executables in **/usr/local/bin/** have elevated privileges.
-If you end up hating this program, you can remove the executables with <code>sudo rm /usr/local/bin/tasks /usr/local/bin/ptasks</code>.
+
+You do not need to continue to the next section, as the executables in **/usr/local/bin/** have elevated privileges.<br>
+*If* you end up hating this program, you can remove the executables with:
+ - <code>sudo rm /usr/local/bin/tasks /usr/local/bin/ptasks</code>.
 
 ---
 
@@ -81,11 +83,11 @@ source ~/.bash_aliases
  
 Your aliases, <code>tasks</code> and <code>ptasks</code>, are now able to be called, in Terminal, from any folder!
 
-If you end up hating this program, you will have to manually remove the aliases with:
+*If* you end up hating this program, you will have to manually remove the aliases with:
 
- 1. <code>nano ~/.bash_aliases</code>.
- 1. Delete the task-list entires found at the bottom.
- 1. Press \[Ctrl X] to exit.
- 1. Press \[Y] to save your changes.
- 1. Press \[Enter] to save the name of the file *as is*.
- 1. <code>source ~/.bash_aliases</code>
+ - <code>nano ~/.bash_aliases</code>.
+ - Delete the task-list entires found at the bottom.
+ - Press \[Ctrl X] to exit.
+ - Press \[Y] to save your changes.
+ - Press \[Enter] to save the name of the file *as is*.
+ - <code>source ~/.bash_aliases</code>
