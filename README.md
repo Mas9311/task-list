@@ -67,13 +67,10 @@ You do not need to continue to the next section, as the executables in **/usr/lo
 
 Instead of doing the 10 steps listed above, these will achieve the same goal, but be advised that you cannot properly run a desktop launcher from an alias.
 
- 1. <code>nano \~/.profile</code> to see and edit your current aliases.
- 1. Copy the following block:
-<pre># task-list program aliases
-alias tasks="cd ~/Software/task-list*/; python3 run.py"
-alias ptasks="cd ~/Software/task-list*/; python3 run.py print"</pre>
- 3. Paste the text into the file. I recommend grouping your custom aliases together at the bottom of the file.
- 1. Save your changes in <code>nano</code> by pressing \[Ctrl X] to exit, \[Y] to save, then \[Enter] to save the name of the file *as is*.
- 1. <code>source \~/.profile</code> to make your new aliases visible.
+1. Copy and paste the following block into a Terminal shell
+<pre>echo '# task-list program aliases' >> ~/.bash_aliases
+echo 'alias tasks="cd ~/Software/task-list*/; python3 run.py"' >> ~/.bash_aliases
+echo 'alias ptasks="cd ~/Software/task-list*/; python3 run.py print"'  >> ~/.bash_aliases
+source ~/.bash_aliases</pre>
  
  Now your aliases are able to be called, in Terminal, from any folder.
