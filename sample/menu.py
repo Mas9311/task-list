@@ -26,6 +26,12 @@ def file_menu(my_lists, first_execution):
         else:
             menu_output = f'{task.return_all(my_lists)}'
         menu_output += f'Enter the desired [option] from the list below:\n'
+        if not my_lists:
+            menu_output += f'\t[1] to Create a new list\n'
+            if retrieve_index(1, menu_output) is 'return':
+                return ''
+            create_file(my_lists)
+            continue
         curr_option = 1
         options = {}
         for filename, curr_list in my_lists.items():
@@ -171,7 +177,7 @@ def rename_task(curr_list):
         if index is 'return':
             return
     description = input(f'What do you want to rename \'{curr_list.tasks[index][1]}\' to?\n'
-                        f'  or press [Enter] to return\n').strip().lower()
+                        f'  or press [Enter] to return\n').strip()
     if not description:
         return
     print()
