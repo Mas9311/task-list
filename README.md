@@ -6,18 +6,18 @@ Consolidate your todo lists.<br>
 
 ## Usage ##
 
- 1. [Download this repo](https://github.com/Mas9311/task-list/archive/v1.0.1.zip), and open a Terminal window.
- 1. Extract or <code>unzip</code> the <code>task-list-1.0.1.zip</code> file, then delete the zip.
+ 1. [Download this repo](https://github.com/Mas9311/task-list/archive/v1.0.2.zip), and open a Terminal window.
+ 1. Extract or <code>unzip</code> the <code>task-list-1.0.2.zip</code> file, then delete the zip.
     - I recommend creating a general Software folder, <code>mkdir \~/Software/</code>, so your applications/software don't accumulate in **\~/Downloads/** or **\~/Desktop/**.
-    - Move the new <code>task-list-1.0.1/</code> folder into the **\~/Software/** folder.
- 3. <code>cd</code> into <code>task-list-1.0.1/</code>.
+    - Move the new <code>task-list-1.0.2/</code> folder into the **\~/Software/** folder.
+ 3. <code>cd</code> into <code>task-list-1.0.2/</code>.
  1. To run the menu-driven program, type <code>python3 run.py</code>
  1. Or to *just* print all of your lists, type <code>python3 run.py print</code>
 
 
 ## Want to Make an Executable? ##
 
-Personally, I don't want to <code>cd</code> into <code>\~/Software/task-list-1.0.1/</code>, and type <code>python3 run.py</code> to run the menu program every time, so follow these steps to either create an executable or an alias.<br>
+Personally, I don't want to <code>cd</code> into <code>\~/Software/task-list-1.0.2/</code>, and type <code>python3 run.py</code> to run the menu program every time, so follow these steps to either create an executable or an alias.<br>
 I named mine <code>tasks</code> and <code>ptasks</code>, short for *print tasks*.<br>
 I know it looks like a lot to read, but it's a step-by-step walkthrough, so bear with me.<br>
 
@@ -32,7 +32,7 @@ or just
 [create an alias](https://github.com/Mas9311/task-list/blob/master/README.md#create-an-alias).<br>
 Both will allow you type the given name into Terminal to run the commands we're about to create.<br>
 
-*Note: If you did not move the* **task-list-1.0.1/** *folder into* **\~/Software/** *, then replace the* '\~/Software/' *path with the actual path in the text found below.*
+*Note: If you did not move the* **task-list-1.0.2/** *folder into* **\~/Software/** *, then replace the* '\~/Software/' *path with the actual path in the text found below.*
 
 ##### Create a Desktop Launcher #####
 
