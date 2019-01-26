@@ -64,10 +64,11 @@ Let's go make that desktop launcher.
  1. Repeat step 3-6 for <code>ptasks</code>, but change:
     - Name: Print Tasks
     - Command: ptasks
-    - Icon: click <img src="../icons_1/icons/print_tasks.png" 
-         alt="Print Tasks icon" 
-         width="20" 
-         height="20" /> and download
+    - Icon: <img src="../icons_1/icons/print_tasks.png"
+                 alt="Print Tasks icon" 
+                 width="20" 
+                 height="20" /> 
+                 [download it here](https://raw.githubusercontent.com/Mas9311/task-list/icons_1/icons/print_tasks.png) 
 
 You do not need to continue to the next section, as the executables in **/usr/local/bin/** have elevated privileges.<br>
 *If* you end up hating this program, you can remove the executables with:
