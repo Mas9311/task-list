@@ -61,9 +61,10 @@ Let's go make that desktop launcher.
     - \[✓] Run in Terminal
  5. Click \[Create].
  1. Open the new launcher and click \[Mark Executable] when prompted.
- 1. Repeat step 3-6 for <code>ptasks</code>, but change:
+ 1. To make <code>ptasks</code>, follow the same steps, and the launcher configurations to be:
     - Name: Print Tasks
     - Command: ptasks
+    - \[✓] Run in Terminal
     - Icon: <img src="../icons_1/icons/print_tasks.png"
                  alt="Print Tasks icon" 
                  width="20" 
