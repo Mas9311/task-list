@@ -61,7 +61,15 @@ Let's go make that desktop launcher.
     - \[✓] Run in Terminal
  5. Click \[Create].
  1. Open the new launcher and click \[Mark Executable] when prompted.
- 1. Repeat step 3-6 for <code>ptasks</code>, but change the Name: Print Tasks and Command: ptasks
+ 1. To make <code>ptasks</code>, follow the same steps, and the launcher configurations to be:
+    - Name: Print Tasks
+    - Command: ptasks
+    - \[✓] Run in Terminal
+    - Icon: <img src="../icons_1/icons/print_tasks.png"
+                 alt="Print Tasks icon" 
+                 width="20" 
+                 height="20" /> 
+                 [download it here](https://raw.githubusercontent.com/Mas9311/task-list/icons_1/icons/print_tasks.png) 
 
 You do not need to continue to the next section, as the executables in **/usr/local/bin/** have elevated privileges.<br>
 *If* you end up hating this program, you can remove the executables with:
